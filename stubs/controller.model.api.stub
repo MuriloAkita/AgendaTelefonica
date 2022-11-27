@@ -1,0 +1,136 @@
+<?php
+
+namespace {{ namespace }};
+
+use {{ namespacedModel }};
+use App\Traits\ApiResponser;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Log;
+use {{ rootNamespace }}Http\Controllers\Controller;
+use {{ rootNamespace }}Http\Requests\Create{{ model }}Request;
+use {{ rootNamespace }}Http\Requests\Update{{ model }}Request;
+
+class {{ class }} extends Controller
+{
+  use ApiResponser;
+
+    /**
+     * Construtor de {{ class }}.
+     */
+    public function __construct(
+        {{ model }} ${{ modelVariable }}Model
+    ) {
+        // $this->middleware('permission:{{ modelVariable }}s.index', ['only' => ['index']]);
+        // $this->middleware('permission:{{ modelVariable }}s.show', ['only' => ['show']]);
+        // $this->middleware('permission:{{ modelVariable }}s.store', ['only' => ['store']]);
+        // $this->middleware('permission:{{ modelVariable }}s.update', ['only' => ['update']]);
+        // $this->middleware('permission:{{ modelVariable }}s.destroy', ['only' => ['destroy']]);
+
+        $this->{{ modelVariable }}Model = ${{ modelVariable }}Model;
+    }
+    /**
+     * Listagem de todos os {{ modelVariable }}s.
+     *
+     * @return ApiResponser
+     */
+    public function index()
+    {
+        ${{ modelVariable }}s = $this->{{ modelVariable }}Model->get();
+
+        return $this->success(${{ modelVariable }}s);
+    }
+
+    /**
+     * Exibição de um determinado {{ modelVariable }}.
+     *
+     * @param  int  $id
+     *
+     * @return ApiResponser
+     */
+    public function show($id)
+    {
+        ${{ modelVariable }} = $this->{{ modelVariable }}Model->where('id', $id)->first();
+
+        if (!${{ modelVariable }}) {
+            return $this->error('Não foi possível encontrar [{{ model }}].', 404);
+        }
+
+        return $this->success(${{ modelVariable }});
+    }
+
+    /**
+     * Criação de {{ modelVariable }}s.
+     *
+     * @param  Create{{ model }}Request  $request
+     *
+     * @return ApiResponser
+     */
+    public function store(Create{{ model }}Request $request)
+    {
+        DB::beginTransaction();
+        try {
+            ${{ modelVariable }} = $this->{{ modelVariable }}Model->create($request->all());
+        } catch (\Exception $e) {
+            DB::rollback();
+            Log::error($e->getMessage());
+            return $this->error('Ocorreu um erro ao criar [{{ model }}].', 400);
+        }
+        DB::commit();
+        return $this->success(${{ modelVariable }}, '[{{ model }}] criado com sucesso.', 200);
+    }
+
+    /**
+     * Atualiza um determinado {{ modelVariable }}.
+     *
+     * @param  Update{{ model }}Request  $request
+     * @param  int  $id
+     *
+     * @return ApiResponser
+     */
+    public function update(Update{{ model }}Request $request, $id)
+    {
+        DB::beginTransaction();
+        try {
+            ${{ modelVariable }} = $this->{{ modelVariable }}Model->where('id', $id)->first();
+
+            if (!${{ modelVariable }}) {
+                return $this->error('Não foi possível encontrar [{{ model }}].', 404);
+            }
+
+            ${{ modelVariable }} = ${{ modelVariable }}->update($request->all());
+        } catch (\Exception $e) {
+            DB::rollback();
+            Log::error($e->getMessage());
+            return $this->error('Ocorreu um erro ao atualizar [{{ model }}].', 400);
+        }
+        DB::commit();
+        return $this->success(${{ modelVariable }}, '[{{ model }}] atualizado com sucesso.', 200);
+    }
+
+    /**
+     * Deleta um determinado {{ modelVariable }}.
+     *
+     * @param  int  $id
+     *
+     * @return ApiResponser
+     */
+    public function destroy($id)
+    {
+                DB::beginTransaction();
+        try {
+            ${{ modelVariable }} = $this->{{ modelVariable }}Model->where('id', $id)->first();
+
+            if (!${{ modelVariable }}) {
+                return $this->error('Não foi possível encontrar [{{ model }}].', 404);
+            }
+
+            ${{ modelVariable }} = ${{ modelVariable }}->delete();
+        } catch (\Exception $e) {
+            DB::rollback();
+            Log::error($e->getMessage());
+            return $this->error('Ocorreu um erro ao deletar [{{ model }}].', 400);
+        }
+        DB::commit();
+        return $this->success(${{ modelVariable }}, '[{{ model }}] deletado com sucesso.', 200);
+    }
+}
