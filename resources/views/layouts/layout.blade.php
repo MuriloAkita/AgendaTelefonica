@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-    <title>Dashboard - NiceAdmin Bootstrap Template</title>
+    <title>Agenda Telefonica</title>
     <meta content="" name="description">
     <meta content="" name="keywords">
 
@@ -20,16 +20,16 @@
         rel="stylesheet">
 
     <!-- Vendor CSS Files -->
-    <link href="{{asset('NiceAdmin/vendor/bootstrap/css/bootstrap.min.css')}}" rel="stylesheet">
-    <link href="{{asset('NiceAdmin/vendor/bootstrap-icons/bootstrap-icons.css')}}" rel="stylesheet">
-    <link href="{{asset('NiceAdmin/vendor/boxicons/css/boxicons.min.css')}}" rel="stylesheet">
-    <link href="{{asset('NiceAdmin/vendor/quill/quill.snow.css')}}" rel="stylesheet">
-    <link href="{{asset('NiceAdmin/vendor/quill/quill.bubble.css')}}" rel="stylesheet">
-    <link href="{{asset('NiceAdmin/vendor/remixicon/remixicon.css')}}" rel="stylesheet">
-    <link href="{{asset('NiceAdmin/vendor/simple-datatables/style.css')}}" rel="stylesheet">
+    <link href="{{ asset('NiceAdmin/vendor/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('NiceAdmin/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
+    <link href="{{ asset('NiceAdmin/vendor/boxicons/css/boxicons.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('NiceAdmin/vendor/quill/quill.snow.css') }}" rel="stylesheet">
+    <link href="{{ asset('NiceAdmin/vendor/quill/quill.bubble.css') }}" rel="stylesheet">
+    <link href="{{ asset('NiceAdmin/vendor/remixicon/remixicon.css') }}" rel="stylesheet">
+    <link href="{{ asset('NiceAdmin/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="NiceAdmin/css/style.css" rel="stylesheet">
+    {{-- <link href="NiceAdmin/css/style.css" rel="stylesheet"> --}}
 
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.1
@@ -37,9 +37,27 @@
   * Author: BootstrapMade.com
   * License: https://bootstrapmade.com/license/
   ======================================================== -->
+
+    @yield('css')
+    @livewireStyles
+    @powerGridStyles
+    <style>
+        .appName {
+            font-size: 26px;
+            font-weight: 700;
+            color: #012970;
+            font-family: "Nunito", sans-serif;
+        }
+    </style>
 </head>
 
 <body>
+
+    <header id="header" class="header d-flex align-items-center mb-5">
+        <span class="d-none d-lg-block appName">Agenda Telefonica</span>
+        <nav class="">
+        </nav>
+    </header>
 
     @yield('content')
 
@@ -47,18 +65,23 @@
             class="bi bi-arrow-up-short"></i></a>
 
     <!-- Vendor JS Files -->
-    <script src="{{asset('NiceAdmin/vendor/apexcharts/apexcharts.min.js')}}"></script>
-    <script src="{{asset('NiceAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('NiceAdmin/vendor/chart.js/chart.min.js')}}"></script>
-    <script src="{{asset('NiceAdmin/vendor/echarts/echarts.min.js')}}"></script>
-    <script src="{{asset('NiceAdmin/vendor/quill/quill.min.js')}}"></script>
-    <script src="{{asset('NiceAdmin/vendor/simple-datatables/simple-datatables.js')}}"></script>
-    <script src="{{asset('NiceAdmin/vendor/tinymce/tinymce.min.js')}}"></script>
-    <script src="{{asset('NiceAdmin/vendor/php-email-form/validate.js')}}"></script>
+    <script src="{{ asset('NiceAdmin/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('NiceAdmin/vendor/apexcharts/apexcharts.min.js') }}"></script>
+    <script src="{{ asset('NiceAdmin/vendor/chart.js/chart.min.js') }}"></script>
+    <script src="{{ asset('NiceAdmin/vendor/echarts/echarts.min.js') }}"></script>
+    <script src="{{ asset('NiceAdmin/vendor/quill/quill.min.js') }}"></script>
+    <script src="{{ asset('NiceAdmin/vendor/simple-datatables/simple-datatables.js') }}"></script>
+    <script src="{{ asset('NiceAdmin/vendor/tinymce/tinymce.min.js') }}"></script>
+    <script src="{{ asset('NiceAdmin/vendor/php-email-form/validate.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+
+    @livewireScripts
+    @powerGridScripts
 
     <!-- Template Main JS File -->
-    <script src="NiceAdmin/js/main.js"></script>
+    {{-- <script src="NiceAdmin/js/main.js"></script> --}}
 
+    @yield('js')
 </body>
 
 </html>
