@@ -29,7 +29,7 @@
     <link href="{{ asset('NiceAdmin/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    {{-- <link href="NiceAdmin/css/style.css" rel="stylesheet"> --}}
+    <link href="NiceAdmin/css/style.css" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.1
@@ -74,13 +74,15 @@
     <script src="{{ asset('NiceAdmin/vendor/tinymce/tinymce.min.js') }}"></script>
     <script src="{{ asset('NiceAdmin/vendor/php-email-form/validate.js') }}"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
 
     @livewireScripts
     @powerGridScripts
 
     <!-- Template Main JS File -->
-    {{-- <script src="NiceAdmin/js/main.js"></script> --}}
-
+    <script src="NiceAdmin/js/main.js"></script>
+    
+    @include('layouts.scripts')
     @yield('js')
 </body>
 
