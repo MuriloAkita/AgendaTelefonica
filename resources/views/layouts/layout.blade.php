@@ -29,7 +29,7 @@
     <link href="{{ asset('NiceAdmin/vendor/simple-datatables/style.css') }}" rel="stylesheet">
 
     <!-- Template Main CSS File -->
-    <link href="NiceAdmin/css/style.css" rel="stylesheet">
+    <link href="{{asset('NiceAdmin/css/style.css')}}" rel="stylesheet">
 
     <!-- =======================================================
   * Template Name: NiceAdmin - v2.4.1
@@ -80,7 +80,7 @@
     @powerGridScripts
 
     <!-- Template Main JS File -->
-    <script src="NiceAdmin/js/main.js"></script>
+    <script src="{{asset('NiceAdmin/js/main.js')}}"></script>
     
     @include('layouts.scripts')
     @yield('js')
