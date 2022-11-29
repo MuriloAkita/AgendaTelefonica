@@ -1,3 +1,7 @@
+@php
+    $states = App\Models\Agenda::STATES;
+@endphp
+
 @extends('layouts.app')
 
 @section('content_header')
@@ -16,47 +20,80 @@
                             <div class="form-floating mb-3 col-md-3">
                                 <input type="text" class="form-control" id="floatingInput" name="name"
                                     placeholder="João Gomes">
-                                <label for="floatingInput">Nome</label>
+                                <label for="floatingInput">Nome*</label>
+                                @error('name')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-3">
                                 <input type="text" class="form-control phone" id="floatingInput" name="phone"
                                     placeholder="(11) 3333-2222">
-                                <label for="floatingInput">Telefone</label>
+                                <label for="floatingInput">Telefone*</label>
+                                @error('phone')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-3">
                                 <input type="text" class="form-control cellphone" id="floatingInput" name="cellphone"
                                     placeholder="(11) 99999-0000">
                                 <label for="floatingInput">Celular (Opcional)</label>
+                                @error('cellphone')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-3">
                                 <input type="email" class="form-control" id="floatingInput" name="email"
                                     placeholder="name@example.com">
                                 <label for="floatingInput">Email (Opcional)</label>
+                                @error('email')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-4">
                                 <input type="text" class="form-control" id="floatingInput" name="street"
                                     placeholder="Rua Teste">
-                                <label for="floatingInput">Rua</label>
+                                <label for="floatingInput">Rua*</label>
+                                @error('street')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-2">
                                 <input type="number" class="form-control" id="floatingInput" name="number"
                                     placeholder="1234">
-                                <label for="floatingInput">Número</label>
+                                <label for="floatingInput">Número*</label>
+                                @error('number')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-2">
                                 <input type="text" class="form-control" id="floatingInput" name="district"
                                     placeholder="Bairro Novo">
-                                <label for="floatingInput">Bairro</label>
+                                <label for="floatingInput">Bairro*</label>
+                                @error('district')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-3">
                                 <input type="text" class="form-control" id="floatingInput" name="city"
                                     placeholder="São Paulo">
-                                <label for="floatingInput">Cidade</label>
+                                <label for="floatingInput">Cidade*</label>
+                                @error('city')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-1">
-                                <input type="text" class="form-control" id="floatingInput" name="state"
-                                    placeholder="SP">
-                                <label for="floatingInput">Estado</label>
+                                <select class="form-select" name="state" id="floatingSelect" aria-label="UF">
+                                    @foreach ($states as $state)
+                                        <option selected hidden> UF </option>
+                                        <option value="{{ $state }}">
+                                            {{ $state }}</option>
+                                    @endforeach
+
+                                </select>
+                                <label for="floatingSelect">UF*</label>
+                                @error('state')
+                                    <span class="text-danger"> {{ $message }}</span>
+                                @enderror
                             </div>
                         </div>
 

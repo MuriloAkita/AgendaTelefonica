@@ -154,7 +154,7 @@ final class Agendas extends PowerGridComponent
                 ->searchable()
                 ->makeInputText(),
 
-            Column::make('Estado', 'state')
+            Column::make('UF', 'state')
                 ->sortable()
                 ->searchable()
                 ->makeInputText(),
