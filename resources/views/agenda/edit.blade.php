@@ -18,7 +18,7 @@
                         @method('PUT')
                         <div class="row g-3 cold-sm-12">
                             <div class="form-floating mb-3 col-md-3">
-                                <input type="text" class="form-control" name="name" value="{{ $agenda->name }}"
+                                <input type="text" class="form-control" name="name" value="{{ old('name') ?? $agenda->name }}"
                                     placeholder="João Gomes">
                                 <label for="floatingInput">Nome</label>
                                 @error('name')
@@ -26,7 +26,7 @@
                                 @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-3">
-                                <input type="text" class="form-control phone" name="phone" value="{{ $agenda->phone }}"
+                                <input type="text" class="form-control phone" name="phone" value="{{ old('phone') ?? $agenda->phone }}"
                                     placeholder="(11) 3333-2222">
                                 <label for="floatingInput">Telefone</label>
                                 @error('phone')
@@ -35,14 +35,14 @@
                             </div>
                             <div class="form-floating mb-3 col-md-3">
                                 <input type="text" class="form-control cellphone" name="cellphone"
-                                    value="{{ $agenda->cellphone }}" placeholder="(11) 99999-0000">
+                                    value="{{ old('cellphone') ?? $agenda->cellphone }}" placeholder="(11) 99999-0000">
                                 <label for="floatingInput">Celular (Opcional)</label>
                                 @error('cellphone')
                                     <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-3">
-                                <input type="email" class="form-control" name="email" value="{{ $agenda->email }}"
+                                <input type="email" class="form-control" name="email" value="{{ old('email') ?? $agenda->email }}"
                                     placeholder="name@example.com">
                                 <label for="floatingInput">Email (Opcional)</label>
                                 @error('email')
@@ -50,7 +50,7 @@
                                 @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-4">
-                                <input type="text" class="form-control" name="street" value="{{ $agenda->address[0] }}"
+                                <input type="text" class="form-control" name="street" value="{{ old('street') ?? $agenda->address[0] }}"
                                     placeholder="Rua Teste">
                                 <label for="floatingInput">Rua</label>
                                 @error('street')
@@ -59,7 +59,7 @@
                             </div>
                             <div class="form-floating mb-3 col-md-2">
                                 <input type="number" class="form-control" name="number"
-                                    value="{{ (int) $agenda->address[1] }}" placeholder="1234">
+                                    value="{{ old('number') ?? (int) $agenda->address[1] }}" placeholder="1234">
                                 <label for="floatingInput">Número</label>
                                 @error('number')
                                     <span class="text-danger"> {{ $message }}</span>
@@ -67,14 +67,14 @@
                             </div>
                             <div class="form-floating mb-3 col-md-2">
                                 <input type="text" class="form-control" name="district"
-                                    value="{{ $agenda->address[2] }}" placeholder="Bairro Novo">
+                                    value="{{ old('district') ?? $agenda->address[2] }}" placeholder="Bairro Novo">
                                 <label for="floatingInput">Bairro</label>
                                 @error('district')
                                     <span class="text-danger"> {{ $message }}</span>
                                 @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-3">
-                                <input type="text" class="form-control" name="city" value="{{ $agenda->city }}"
+                                <input type="text" class="form-control" name="city" value="{{ old('city') ?? $agenda->city }}"
                                     placeholder="São Paulo">
                                 <label for="floatingInput">Cidade</label>
                                 @error('city')
