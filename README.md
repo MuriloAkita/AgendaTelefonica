@@ -5,6 +5,7 @@ Esse projeto foi feito para um processo seletivo. Nele é possivel cadastrar, ed
 
  - PHP 8.x+
  - Composer 2.4.x
+ - Laragon 6.x (Não obrigatório, porém o projeto foi feito utilizando-o.)
 
 ## Instalação
 
