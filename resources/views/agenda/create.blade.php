@@ -50,7 +50,7 @@
                                 @enderror
                             </div>
                             <div class="form-floating mb-3 col-md-4">
-                                <input type="text" class="form-control" id="floatingInput" name="street"
+                                <input type="text" class="form-control street" id="floatingInput" name="street"
                                     value="{{ old('street') }}" placeholder="Rua Teste" required>
                                 <label for="floatingInput">Rua*</label>
                                 @error('street')
