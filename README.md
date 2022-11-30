@@ -29,7 +29,7 @@ Criação e geração das tabelas do banco de dados:
 
 ## Prints do projeto
 
-![image](https://user-images.githubusercontent.com/88469724/204843194-3fc9636b-c23c-4946-b3ed-453abe7ca1a2.png)
+![image](https://user-images.githubusercontent.com/88469724/204843310-2c3ee547-92dc-42e4-a045-ea98e170a54e.png)
 ![Screenshot_3](https://user-images.githubusercontent.com/88469724/204355000-4e4cf8a3-3cf0-4b0b-84d7-63764a39898d.png)
 ![Screenshot_4](https://user-images.githubusercontent.com/88469724/204355004-596adf2c-1af9-4c8f-9f0a-a42e3948b572.png)
 
